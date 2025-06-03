@@ -1,0 +1,15 @@
+{
+  "name": "whatsapp-telegram-bot",
+  "version": "1.0.0",
+  "description": "بوت يراقب تفاعلات واتساب ويرسل أرقام لتليجرام",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "whatsapp-web.js": "^1.19.3",
+    "telegraf": "^4.11.1",
+    "qrcode-terminal": "^0.12.0",
+    "dotenv": "^16.0.3"
+  }
+}
