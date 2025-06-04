@@ -2,12 +2,15 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const { Telegraf } = require('telegraf');
 
-const bot = new Telegraf('7845128010:AAEi4cEprUbzz8FeVZ0AN7IQN7YdLeCOhxA');
-const chatId = '6272162286';
+const bot = new Telegraf("7845128010:AAEi4cEprUbzz8FeVZ0AN7IQN7YdLeCOhxA");
+const chatId = "6272162286";
 
 const client = new Client({
   authStrategy: new LocalAuth(),
-  puppeteer: { headless: true }
+  puppeteer: {
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  }
 });
 
 client.on('qr', (qr) => {
@@ -19,7 +22,7 @@ client.on('ready', () => {
   console.log('بوت واتساب جاهز');
 });
 
-let sentNumbers = new Set();
+const sentNumbers = new Set();
 
 client.on('message_reaction', async (reaction) => {
   try {
